@@ -57,12 +57,12 @@ public class CompressionOperations {
         }
         Thread thread = new Thread(() -> { //create a thread
             try {
-                serverSocket = new ServerSocket(1453); // create a server socket with specified port number
+                serverSocket = new ServerSocket(13782); // create a server socket with specified port number
                 serverSocket.setSoTimeout(5000); // set Time out for client socket
                 socket = serverSocket.accept(); // wait for connection of client
                 int count; // counter
                 byte[] temp = new byte[(int) compressed_file.length()]; // create a byte array with length of compressed_file length 
-                fileInputStream = new FileInputStream(compressed_file); // gettting bytes from specified file
+                fileInputStream = new FileInputStream(compressed_file); // getting bytes from specified file
                 bufferedInputStream = new BufferedInputStream(fileInputStream);
                 outputStream = socket.getOutputStream(); // getting output streams of client socket
                 while ((count = bufferedInputStream.read(temp)) > 0) { // read bytes from file
