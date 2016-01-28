@@ -41,6 +41,7 @@ public class CompressionOperations {
     private OutputStream outputStream = null;
     private Socket socket;
     private volatile boolean sent = false;
+    private Thread thread;
 
     /**
      * This method is written for sending compressed file via Internet. If
@@ -55,7 +56,7 @@ public class CompressionOperations {
             JOptionPane.showMessageDialog(null, "Please compress files first"); // warn user
             return; // return back
         }
-        Thread thread = new Thread(() -> { //create a thread
+        thread = new Thread(() -> { //create a thread
             try {
                 serverSocket = new ServerSocket(13782); // create a server socket with specified port number
                 serverSocket.setSoTimeout(5000); // set Time out for client socket
