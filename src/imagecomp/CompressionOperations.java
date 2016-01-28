@@ -57,7 +57,7 @@ public class CompressionOperations {
         }
         Thread thread = new Thread(() -> { //create a thread
             try {
-                serverSocket = new ServerSocket(13267); // create a server socket with specified port number
+                serverSocket = new ServerSocket(1453); // create a server socket with specified port number
                 serverSocket.setSoTimeout(5000); // set Time out for client socket
                 socket = serverSocket.accept(); // wait for connection of client
                 int count; // counter
